@@ -13,11 +13,14 @@ Same held-out test split for every model: `data/processed/test.jsonl` (n=6496), 
 | toxic-bert | 109.5M | 876.0 MB | 0.794 | 0.965 | 0.526 | **0.681** | 14.04 ms | 67 texts/s | 731 MB |
 | toxic-comment-model | 67.0M | 267.9 MB | 0.744 | 0.961 | 0.402 | **0.566** | 7.50 ms | 128 texts/s | 564 MB |
 | bert-base-uncased-hatexplain | 109.5M | 438.0 MB | 0.704 | 0.761 | 0.423 | **0.543** | 14.23 ms | 67 texts/s | 704 MB |
+| Shieldstral-1.0-3B (Mistral Guard) | 3849.1M | 7700.0 MB | 0.639 | 0.745 | 0.202 | **0.318** | 51.62 ms | 24 texts/s | 8692 MB |
 | dehatebert-mono-english | 167.4M | 669.5 MB | 0.636 | 0.875 | 0.147 | **0.252** | 14.46 ms | 66 texts/s | 937 MB |
 | keyword baseline | 0.0M | 0.0 MB | 0.568 | 0.374 | 0.054 | **0.094** | 0.03 ms | 34514 texts/s | 0 MB |
 
 ![overview](figs/comparison_overview.png)
 ![f1 vs size](figs/f1_vs_size.png)
 ![metrics](figs/metrics_bars.png)
+
+Shieldstral (Mistral Guard) row measured by `scripts/bench_shieldstral.py` (policy query, single yes/no token, @0.5; best-threshold F1 0.479 @0.05 shown in parentheses).
 
 Reproduce: `.venv/bin/python scripts/compare_models.py && .venv/bin/python scripts/make_comparison_figs.py`
