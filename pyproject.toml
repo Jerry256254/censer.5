@@ -1,0 +1,31 @@
+[project]
+name = "kuclab-censer5"
+version = "0.4.0"
+description = "Censer.5 - a tiny from-scratch LLM that classifies English text as unsafe (1) or safe (0)."
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.9",
+    "transformers>=4.45",
+    "huggingface_hub>=0.24",
+    "safetensors>=0.4",
+    "datasets>=3.0",
+    "tokenizers>=0.20",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+kuclab-cneser = "kuclab.cli:main"
+"censer.5" = "kuclab.cli:ui_main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["kuclab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
